@@ -11,7 +11,7 @@ import { parseEther } from 'viem';
 import fetch from "./fetch";
 
 
-const getClaimedTokens = (nftId:Number) => {
+const GetClaimedTokens = (nftId:Number) => {
   const [signature, setSignature] = useState('');
   useEffect(() => {
     const getSignature = async () => {
@@ -39,4 +39,4 @@ const getClaimedTokens = (nftId:Number) => {
   return { data, isError, isLoading,write,isSuccess };
 };
 
-export default getClaimedTokens;
+export default GetClaimedTokens;
