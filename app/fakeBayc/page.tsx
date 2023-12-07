@@ -40,7 +40,7 @@ const Page = () => {
           Total BAYC Supply: {String(data)}</>)}</div>
           </CardContent>
           <CardFooter className="">
-          <Mint/>
+          {/* <Mint/> */}
           </CardFooter>
         </Card>
     </div>
