@@ -8,7 +8,7 @@ import {
   } from "wagmi";
 import ABICLAIMER from './Meebits_claimer.js';
 import { parseEther } from 'viem';
-import fetch from "./fetch.jsx";
+import fetch from "./fetch";
 
 
 const GetClaimedTokens = (nftId:number) => {
