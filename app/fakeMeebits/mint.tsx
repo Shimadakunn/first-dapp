@@ -11,16 +11,25 @@ import { parseEther } from 'viem';
 import fetch from "./fetch";
 
 
-const GetClaimedTokens = (nftId:Number) => {
+const GetClaimedTokens = (nftId:number) => {
   const [signature, setSignature] = useState('');
   useEffect(() => {
     const getSignature = async () => {
-      const signature = await fetch(nftId);
-      setSignature(signature);
-      console.log(signature);
+      try {
+        const signature = await fetch(nftId);
+        if (typeof signature === 'string') {
+          setSignature(signature);
+          console.log(signature);
+        } else {
+          console.error('Signature is not a string:', signature);
+        }
+      } catch (error) {
+        console.error('Error fetching signature:', error);
+      }
     };
     getSignature();
   }, [nftId]);
+  
     const { config } = usePrepareContractWrite({
         address: "0x5341e225Ab4D29B838a813E380c28b0eFD6FBa55",
         abi: ABICLAIMER[0].abi,

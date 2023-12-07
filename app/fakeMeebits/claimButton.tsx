@@ -7,7 +7,7 @@ import mint from "./mint";
 import { newtonsCradle } from "ldrs";
 newtonsCradle.register();
 
-const Mint = ({id}:{id:Number}) => {
+const Mint = ({id}:{id:number}) => {
   const { data, isError, isLoading } = checkId(id);
   const { data: data2, isError: isError2, isLoading: isLoading2, write,isSuccess } = mint(id);
   return (

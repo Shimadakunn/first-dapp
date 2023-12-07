@@ -1,3 +1,7 @@
+interface Data {
+  tokenNumber: number;
+  signature:string;
+}
 
 export default async function SearchBar(tokenID: Number) {
       try {
@@ -7,9 +11,9 @@ export default async function SearchBar(tokenID: Number) {
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
-        const result = await response.json();
-        const tokenData = result.find(data=> data.tokenNumber === tokenID);
-        return tokenData ? tokenData.signature : null;
+        const result: Data[] = await response.json();
+        const tokenData = result.find((data) => data.tokenNumber === tokenID);
+        return tokenData?.signature;
       } catch (err: any) {
         throw new Error("Error fetching data:", err.message);
     }
