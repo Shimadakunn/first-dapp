@@ -1,8 +1,8 @@
 "use client";
 import Account from "../../components/account";
-import ABI from './BAYC.js';
+import ABI from './components/BAYC.js';
 import {useContractRead} from 'wagmi'
-import Mint from "./mint";
+import Mint from "./components/mint";
 import {
   Card,
   CardContent,

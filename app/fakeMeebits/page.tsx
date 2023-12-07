@@ -1,8 +1,7 @@
 "use client";
 import { useState } from "react";
 import Account from '../../components/account'
-import ABI from './Meebits.js';
-import Mint from './claimButton'
+import Mint from './components/claimButton'
 import {
   Card,
   CardContent,
@@ -11,7 +10,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input"
 
 const Page = () => {

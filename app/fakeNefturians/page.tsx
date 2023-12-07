@@ -1,8 +1,8 @@
 "use client";
 import Account from '../../components/account'
-import ABI from './Nefturians.js';
+import ABI from './components/Nefturians.js';
 import {useContractRead} from 'wagmi'
-import Buy from "./buy";
+import Buy from "./components/buy";
 import {
   Card,
   CardContent,
