@@ -8,7 +8,7 @@ const Account = () => {
   const { chain, chains } = useNetwork();
   return (
     <>
-      {chain && chain.id === 11155111 ? (
+      {chain && chain.id === 11155111 && !isConnected? (
         <div className="absolute top-4 right-4">
           <div className="absolute right-0">
             <w3m-button />

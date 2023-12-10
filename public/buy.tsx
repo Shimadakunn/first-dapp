@@ -1,6 +1,6 @@
 "use client";
 import { useEffect } from "react";
-import ABI from "./Nefturians.js";
+import ABI from "../app/fakeNefturians/components/Nefturians.js";
 import { Button } from "@/components/ui/button";
 import {
   usePrepareContractWrite,

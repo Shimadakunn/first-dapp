@@ -14,8 +14,6 @@ import {
 } from "@/components/ui/card";
 
 const Page = () => {
-  const [data, setData] = useState<Number>();
-  useEffect(() => {
     const { data, isError, isLoading } = useContractRead({
       address: '0x9bAADf70BD9369F54901CF3Ee1b3c63b60F4F0ED',
       abi: ABI[0].abi,
@@ -29,8 +27,6 @@ const Page = () => {
         console.log('Settled', {ABI, data, error })
       },
     })
-    setData(Number(data))
-  }, []);
   return (
     <div className="w-full h-[95vh] flex items-center justify-center space-x-2 relative">
       <Account />
