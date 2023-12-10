@@ -1,8 +1,9 @@
 "use client";
+import {useEffect,useState} from "react";
 import Account from '../../components/account'
 import ABI from './components/Nefturians.js';
 import {useContractRead} from 'wagmi'
-import Buy from "./components/buy";
+// import Buy from "./components/buy";
 import {
   Card,
   CardContent,
@@ -13,19 +14,23 @@ import {
 } from "@/components/ui/card";
 
 const Page = () => {
-  const { data, isError, isLoading } = useContractRead({
-    address: '0x9bAADf70BD9369F54901CF3Ee1b3c63b60F4F0ED',
-    abi: ABI[0].abi,
-    functionName: 'tokenPrice',
-    onSuccess(data) {
-      console.log('Success', data)
-    },onError(error) {
-      console.log('Error', error)
-    },
-    onSettled(data, error) {
-      console.log('Settled', {ABI, data, error })
-    },
-  })
+  const [data, setData] = useState<Number>();
+  useEffect(() => {
+    const { data, isError, isLoading } = useContractRead({
+      address: '0x9bAADf70BD9369F54901CF3Ee1b3c63b60F4F0ED',
+      abi: ABI[0].abi,
+      functionName: 'tokenPrice',
+      onSuccess(data) {
+        console.log('Success', data)
+      },onError(error) {
+        console.log('Error', error)
+      },
+      onSettled(data, error) {
+        console.log('Settled', {ABI, data, error })
+      },
+    })
+    setData(Number(data))
+  }, []);
   return (
     <div className="w-full h-[95vh] flex items-center justify-center space-x-2 relative">
       <Account />
@@ -37,7 +42,7 @@ const Page = () => {
             <div>Floor Price: {Number(data) / 10 ** 18} ETH</div>
           </CardContent>
           <CardFooter className="">
-            <Buy/>
+            {/* <Buy/> */}
           </CardFooter>
         </Card>
     </div>
