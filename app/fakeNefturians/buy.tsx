@@ -1,5 +1,3 @@
-"use client";
-import { useEffect } from "react";
 import ABI from "./components/Nefturians.js";
 import { Button } from "@/components/ui/button";
 import {
