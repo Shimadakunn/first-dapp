@@ -3,7 +3,7 @@ import {useEffect,useState} from "react";
 import Account from '../../components/account'
 import ABI from './components/Nefturians.js';
 import {useContractRead} from 'wagmi'
-// import Buy from "./components/buy";
+import Buy from "./buy";
 import {
   Card,
   CardContent,
@@ -38,7 +38,7 @@ const Page = () => {
             <div>Floor Price: {Number(data) / 10 ** 18} ETH</div>
           </CardContent>
           <CardFooter className="">
-            {/* <Buy/> */}
+            <Buy/>
           </CardFooter>
         </Card>
     </div>

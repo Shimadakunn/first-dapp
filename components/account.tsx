@@ -8,8 +8,7 @@ const Account = () => {
   const { chain, chains } = useNetwork();
   return (
     <>
-      {chain && chain.id === 11155111 && !isConnected? (
-        <div className="absolute top-4 right-4">
+      <div className="absolute top-4 right-4">
           <div className="absolute right-0">
             <w3m-button />
           </div>
@@ -21,15 +20,16 @@ const Account = () => {
               {!isLoading && !isError && (
                 <div>Block Number: {Number(data)}</div>
               )}
-              <div>Connected to {chain.id}</div>
+              <div>Connected to {chain?.id}</div>
             </div>
           )}
-        </div>
-      ):
+      </div>
+      {chain && chain.id === 11155111 && isConnected && 
       (<div className="absolute w-[100vw] h-[95vh] z-10 bg-red-500 flex items-center justify-center text-[5rem]">
-            GO BACK ON SEPOLIA NOW
-        </div>)
-        }
+      GO BACK ON SEPOLIA NOW
+  </div>)
+
+      }
     </>
   );
 };
