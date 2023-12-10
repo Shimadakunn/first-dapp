@@ -1,3 +1,5 @@
+"use client"
+import { useEffect } from "react";
 import ABI from "./components/Nefturians.js";
 import { Button } from "@/components/ui/button";
 import {
@@ -8,9 +10,11 @@ import {
 import { parseEther } from 'viem';
 
 import { newtonsCradle } from "ldrs";
-newtonsCradle.register();
 
 const Mint = () => {
+  useEffect(() => {
+    newtonsCradle.register();
+  }, []);
   const { config } = usePrepareContractWrite({
     address: "0x9bAADf70BD9369F54901CF3Ee1b3c63b60F4F0ED",
     abi: ABI[0].abi,
