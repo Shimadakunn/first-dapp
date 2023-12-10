@@ -3,7 +3,7 @@ import {useEffect,useState} from "react";
 import Account from '../../components/account'
 import ABI from './components/Nefturians.js';
 import {useContractRead} from 'wagmi'
-import Buy from "./buy";
+import Buy from "./components/buy";
 import {
   Card,
   CardContent,

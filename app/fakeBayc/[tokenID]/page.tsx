@@ -8,8 +8,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { newtonsCradle } from "ldrs";
-newtonsCradle.register();
 
 interface Data {
   image: string;
@@ -25,6 +23,11 @@ export default function SearchBar({ params }: { params: { tokenID: string } }) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    async function getLoader() {
+      const { newtonsCradle } = await import('ldrs')
+      newtonsCradle.register()
+    }
+    getLoader()
     const fetchData = async () => {
       setLoading(true);
       try {

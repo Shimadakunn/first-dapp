@@ -24,7 +24,7 @@ const Account = () => {
             </div>
           )}
       </div>
-      {chain && chain.id === 11155111 && isConnected && 
+      {chain?.id !== 11155111 && isConnected && 
       (<div className="absolute w-[100vw] h-[95vh] z-10 bg-red-500 flex items-center justify-center text-[5rem]">
       GO BACK ON SEPOLIA NOW
   </div>)

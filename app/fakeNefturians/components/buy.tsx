@@ -1,20 +1,27 @@
-"use client";
-import ABI from "./BAYC.js";
+"use client"
+import { useEffect } from "react";
+import ABI from "./Nefturians.js";
 import { Button } from "@/components/ui/button";
 import {
   usePrepareContractWrite,
   useContractWrite,
   useWaitForTransaction,
 } from "wagmi";
-
-import { newtonsCradle } from "ldrs";
-newtonsCradle.register();
+import { parseEther } from 'viem';
 
 const Mint = () => {
+  useEffect(() => {
+    async function getLoader() {
+      const { newtonsCradle } = await import('ldrs')
+      newtonsCradle.register()
+    }
+    getLoader()
+  }, [])
   const { config } = usePrepareContractWrite({
-    address: "0x1dA89342716B14602664626CD3482b47D5C2005E",
+    address: "0x9bAADf70BD9369F54901CF3Ee1b3c63b60F4F0ED",
     abi: ABI[0].abi,
-    functionName: "claimAToken",
+    functionName: "buyAToken",
+    value: parseEther('0.11'),
     onSettled(data, error) {
       console.log("Settled", { data, error });
     },
@@ -33,7 +40,7 @@ const Mint = () => {
             color="black"
           ></l-newtons-cradle>
         ) : (
-          "Mint BAYC"
+          "Buy Nefturians"
         )}
       </Button>
       {isSuccess && (

@@ -1,13 +1,18 @@
 "use client";
+import { useEffect } from 'react'
 import { Button } from "@/components/ui/button";
 
 import checkId from "./checkId";
 import mint from "./mint";
 
-import { newtonsCradle } from "ldrs";
-newtonsCradle.register();
-
 const Mint = ({id}:{id:number}) => {
+  useEffect(() => {
+    async function getLoader() {
+      const { newtonsCradle } = await import('ldrs')
+      newtonsCradle.register()
+    }
+    getLoader()
+  }, [])
   const { data, isError, isLoading } = checkId(id);
   const { data: data2, isError: isError2, isLoading: isLoading2, write,isSuccess } = mint(id);
   return (
