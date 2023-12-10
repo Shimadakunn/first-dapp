@@ -9,12 +9,9 @@ import {
 } from "wagmi";
 import { parseEther } from 'viem';
 
-import { newtonsCradle } from "ldrs";
+import "ldrs/newtonsCradle";
 
 const Mint = () => {
-  useEffect(() => {
-    newtonsCradle.register();
-  }, []);
   // const { config } = usePrepareContractWrite({
   //   address: "0x9bAADf70BD9369F54901CF3Ee1b3c63b60F4F0ED",
   //   abi: ABI[0].abi,
@@ -54,7 +51,11 @@ const Mint = () => {
           </Button>
         </>
       )} */}
-    hello
+    <l-newtons-cradle
+            size="78"
+            speed="1.4"
+            color="black"
+          ></l-newtons-cradle>
     </div>
   );
 };
