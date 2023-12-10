@@ -50,11 +50,7 @@ const Mint = () => {
           </Button>
         </>
       )} */}
-       <l-newtons-cradle
-            size="78"
-            speed="1.4"
-            color="black"
-          ></l-newtons-cradle>
+    hello
     </div>
   );
 };
