@@ -7,8 +7,8 @@ import {
 } from "wagmi";
 import { parseEther } from 'viem';
 
-import { newtonsCradle } from "ldrs";
-newtonsCradle.register();
+// import { newtonsCradle } from "ldrs";
+// newtonsCradle.register();
 
 const Mint = () => {
   // const { config } = usePrepareContractWrite({
